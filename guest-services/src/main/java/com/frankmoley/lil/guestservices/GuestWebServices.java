@@ -31,4 +31,11 @@ public class GuestWebServices {
 
         return this.guestRepository.findById(id).get();
     }
+
+    @GetMapping("/test")
+    public long test(){
+        RestTemplate restTemplate = new RestTemplate();
+
+        return 12313;
+    }
 }

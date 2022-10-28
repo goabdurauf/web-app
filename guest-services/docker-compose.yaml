@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  spring-cloud-webapp:
+    image: spring-cloud-webapp
+    networks:
+      - fleetman-network
+    ports:
+      - 8081:8000
+    depends_on:
+      - database
+
+  database:
+    image: mysql:5
+    networks:
+      - fleetman-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=fleetman
+
+networks:
+  fleetman-network:
+
